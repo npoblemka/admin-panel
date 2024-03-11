@@ -1,0 +1,33 @@
+mat-dialog-content {
+    overflow: hidden;
+}
+
+mat-card-content {
+    width: 100%;
+    max-width: 700px;
+
+}
+
+.example-form-field, .example-full-width {
+    width: 90%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 3% auto;
+}
+
+
+.datepicker {
+    max-width: 200px;
+}
+
+.block {
+    display: flex;
+    gap: 10px;
+}
+
+.example-section {
+    margin: 12px 0;
+}

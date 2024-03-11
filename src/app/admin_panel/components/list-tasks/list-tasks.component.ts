@@ -1,12 +1,17 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { ITask } from '../../../model';
+import { RouterLink } from '@angular/router';
+import {MatDialog,  MatDialogModule} from '@angular/material/dialog';
+import { app } from '../../../../../server';
+import { NewTaskComponent } from '../new-task/new-task.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-list-tasks',
@@ -18,11 +23,16 @@ import { ITask } from '../../../model';
       MatSortModule,
       MatPaginatorModule,
       MatButtonModule,
-      MatCardModule],
+      MatCardModule,
+      RouterLink,
+      MatDialogModule,
+      NewTaskComponent,
+      MatNativeDateModule],
   templateUrl: './list-tasks.component.html',
-  styleUrl: './list-tasks.component.scss'
+  styleUrl: './list-tasks.component.scss',
 })
 export class ListTasksComponent {
+  dialog = inject (MatDialog)
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   listTasks!: MatTableDataSource<ITask>;
@@ -39,5 +49,8 @@ export class ListTasksComponent {
     if (this.listTasks.paginator) {
       this.listTasks.paginator.firstPage();
     }
+  }
+  openDialog() {
+    this.dialog.open(NewTaskComponent);
   }
 }

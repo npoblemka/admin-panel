@@ -5,7 +5,7 @@
             "title": "сделать админ-панель",
             "text": "/////",
             "didline": "11/01/2024",
-            "priority": "важно",
+            "priority": false,
             "status": "исполнена"
         }
     ]

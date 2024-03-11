@@ -1,1 +1,60 @@
-<p>new-task works!</p>
+<mat-dialog-content>
+<mat-card>
+    <mat-card-content>
+        <h2 mat-dialog-title>Создать задачу</h2>
+        <form [formGroup]="newTaskForm" class="example-form" (ngSubmit)="addNewTask()">
+            
+                <mat-form-field class="example-full-width">
+                    <mat-label>Назначить исполнителя</mat-label>
+                    <input formControlName="executor" type="text" aria-label="Number" matInput [formControl]="myControl"
+                        [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        @for (option of options; track option) {
+                        <mat-option [value]="option">{{option}}</mat-option>
+                        }
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Название</mat-label>
+                    <input formControlName="title" matInput>
+                </mat-form-field>
+
+                <mat-form-field class="example-form-field">
+                    <mat-label>Подробнее о задаче</mat-label>
+                    <textarea formControlName="text" matInput type="text" >
+                </textarea>
+                    @if (newTaskForm.get('text').value) {
+                    <button matSuffix mat-icon-button aria-label="Clear" (click)="removeText()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    }
+                </mat-form-field>
+
+                <div class="block">
+                    <mat-form-field class="datepicker">
+                        <mat-label>последний срок</mat-label>
+                        <input formControlName="didline" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <section class="example-section">
+                        <mat-checkbox formControlName="priority" class="example-margin" [(ngModel)]="checked">срочно</mat-checkbox>
+                    </section>
+                </div>
+
+                <mat-radio-group formControlName="status" aria-label="Select an option">
+                    <mat-label>Статус задачи:</mat-label>
+                    <mat-radio-button value="исполнена">исполнена</mat-radio-button>
+                    <mat-radio-button value="не исполнена">не исполнена</mat-radio-button>
+                </mat-radio-group>
+           
+            <mat-dialog-actions>
+                <button mat-button color="primary">сохранить</button>
+                <button mat-button color="warn" mat-dialog-close>отменить</button>
+            </mat-dialog-actions>
+        </form>
+    </mat-card-content>
+</mat-card>
+</mat-dialog-content>
