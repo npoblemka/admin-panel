@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ITask } from '../../model';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +17,9 @@ export class ServiceService {
   }
   getAllTasks() {
     return this.http.get<ITask[]>(this.urlTasks)
+  }
+
+  removeTask(id: string) {
+    return this.http.delete(this.urlTasks + '/' + id)
   }
 }

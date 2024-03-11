@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,7 +11,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ServiceService } from '../../service/service.service';
-import { ITask } from '../../../model';
+
+
 
 
 @Component({
@@ -28,13 +29,15 @@ import { ITask } from '../../../model';
       MatCardModule,
       MatAutocompleteModule,
       MatCheckboxModule,
-      MatRadioModule],
+      MatRadioModule,
+    ],
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.scss'
 })
 export class NewTaskComponent {
   service = inject(ServiceService)
   fb = inject(FormBuilder);
+  dialog = inject (MatDialogRef)
   myControl = new FormControl('', Validators.required);
   options: string[] = ['User1', 'User2', 'User3'];
 
@@ -45,14 +48,14 @@ export class NewTaskComponent {
     didline: this.fb.control(new Date(), Validators.required),
     priority: this.fb.control(false),
     status: this.fb.control('не исполнена'),
-  } )
+  })
 
   addNewTask() {
     if (this.newTaskForm.valid) {
       console.log(this.newTaskForm)
       this.service.addTask(this.newTaskForm.value).subscribe(res => {
-        console.log(res)
-        
+        this.dialog.close()
+        location.reload()
       })
 
     } else {

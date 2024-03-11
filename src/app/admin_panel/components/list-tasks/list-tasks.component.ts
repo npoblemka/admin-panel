@@ -62,9 +62,14 @@ export class ListTasksComponent {
   }
 
   getTasks() {
-    this.service.getAllTasks().subscribe(res => { 
-      // this.listTasks.data = res
+    this.service.getAllTasks().subscribe(res => {
       this.listTasks = new MatTableDataSource(res);
+    })
+  }
+
+  removeTask(id: string) {
+    this.service.removeTask(id).subscribe (res => {
+      this.getTasks()
     })
   }
 }

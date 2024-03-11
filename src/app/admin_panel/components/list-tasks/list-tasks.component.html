@@ -45,8 +45,8 @@
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Управление </th>
                     <td mat-cell *matCellDef="let row">
                         <div class="btn">
-                            <button mat-raised-button color="primary">Primary</button>
-                            <button mat-raised-button color="warn">Warn</button>
+                            <button mat-raised-button color="primary">изменить</button>
+                            <button (click)="removeTask(row.id)"  mat-raised-button color="warn">удалить</button>
                         </div>
                     </td>
                 </ng-container>
