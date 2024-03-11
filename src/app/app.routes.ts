@@ -8,7 +8,6 @@ export const routes: Routes = [
         path: 'admin', component: AdminPanelComponent,
         children: [
             { path: 'listTasks', component: ListTasksComponent },
-            { path: 'newTask', component: NewTaskComponent }
         ]
     }
 ];

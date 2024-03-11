@@ -3,13 +3,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ServiceService } from '../../service/service.service';
+import { ITask } from '../../../model';
 
 
 @Component({
@@ -31,9 +33,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   styleUrl: './new-task.component.scss'
 })
 export class NewTaskComponent {
-
+  service = inject(ServiceService)
   fb = inject(FormBuilder);
-  myControl = new FormControl('');
+  myControl = new FormControl('', Validators.required);
   options: string[] = ['User1', 'User2', 'User3'];
 
   newTaskForm = this.fb.group({
@@ -41,13 +43,18 @@ export class NewTaskComponent {
     title: this.fb.control('', Validators.required),
     text: this.fb.control('', Validators.required),
     didline: this.fb.control(new Date(), Validators.required),
-    priority: this.fb.control('false'),
+    priority: this.fb.control(false),
     status: this.fb.control('не исполнена'),
-  })
+  } )
 
-  addNewTask(){
+  addNewTask() {
     if (this.newTaskForm.valid) {
       console.log(this.newTaskForm)
+      this.service.addTask(this.newTaskForm.value).subscribe(res => {
+        console.log(res)
+        
+      })
+
     } else {
       console.log('error')
     }
@@ -56,6 +63,6 @@ export class NewTaskComponent {
     this.newTaskForm.get('text')?.setValue('');
   }
 
- 
+
 
 }

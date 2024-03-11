@@ -6,3 +6,4 @@ export interface ITask {
     priority: string,
     status: string,
 }
+

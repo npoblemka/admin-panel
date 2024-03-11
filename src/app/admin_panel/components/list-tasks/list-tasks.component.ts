@@ -8,10 +8,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ITask } from '../../../model';
 import { RouterLink } from '@angular/router';
-import {MatDialog,  MatDialogModule} from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { app } from '../../../../../server';
 import { NewTaskComponent } from '../new-task/new-task.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ServiceService } from '../../service/service.service';
 
 @Component({
   selector: 'app-list-tasks',
@@ -32,16 +33,22 @@ import { MatNativeDateModule } from '@angular/material/core';
   styleUrl: './list-tasks.component.scss',
 })
 export class ListTasksComponent {
-  dialog = inject (MatDialog)
+  service = inject(ServiceService)
+  dialog = inject(MatDialog)
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  listTasks!: MatTableDataSource<ITask>;
-  displayedColumns: string[] = ['number', 'title', 'didline', 'priority', 'status', 'buttons'];
+  listTasks!: MatTableDataSource<ITask>
 
+  displayedColumns: string[] = ['number', 'executor', 'title', 'didline', 'priority', 'status', 'buttons'];
+
+  ngOnInit() {
+    this.getTasks()
+  }
   ngAfterViewInit() {
     this.listTasks.paginator = this.paginator;
     this.listTasks.sort = this.sort;
   }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.listTasks.filter = filterValue.trim().toLowerCase();
@@ -52,5 +59,12 @@ export class ListTasksComponent {
   }
   openDialog() {
     this.dialog.open(NewTaskComponent);
+  }
+
+  getTasks() {
+    this.service.getAllTasks().subscribe(res => { 
+      // this.listTasks.data = res
+      this.listTasks = new MatTableDataSource(res);
+    })
   }
 }
