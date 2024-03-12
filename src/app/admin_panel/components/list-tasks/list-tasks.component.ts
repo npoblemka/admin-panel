@@ -10,16 +10,19 @@ import { ITask } from '../../../model';
 import { RouterLink } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { NewTaskComponent } from '../new-task/new-task.component';
-import { MatNativeDateModule } from '@angular/material/core';
+import {  MatNativeDateModule } from '@angular/material/core';
 import { ServiceService } from '../../service/service.service';
 import { UpdateTaskComponent } from '../update-task/update-task.component';
-import { FormControl } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-list-tasks',
   standalone: true,
   imports:
-    [MatFormFieldModule,
+    [CommonModule,
+      MatFormFieldModule,
       MatInputModule,
       MatTableModule,
       MatSortModule,
@@ -29,13 +32,19 @@ import { FormControl } from '@angular/forms';
       RouterLink,
       MatDialogModule,
       NewTaskComponent,
-      MatNativeDateModule,],
+      MatNativeDateModule,
+      MatIconModule],
   templateUrl: './list-tasks.component.html',
   styleUrl: './list-tasks.component.scss',
 })
+
+
+
 export class ListTasksComponent {
   service = inject(ServiceService);
   dialog = inject(MatDialog);
+  
+  
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -65,7 +74,7 @@ export class ListTasksComponent {
 
   updateTask(id: string) {
     this.dialog.open(UpdateTaskComponent, {
-      data: {id:id}
+      data: { id: id }
     });
   }
 
@@ -81,5 +90,5 @@ export class ListTasksComponent {
     })
   }
 
-  
+
 }

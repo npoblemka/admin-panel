@@ -1,3 +1,4 @@
+
 export interface ITask {
     id?:string,
     executor: string,
@@ -7,6 +8,3 @@ export interface ITask {
     priority: string,
     status: string,
 }
-
-
-
