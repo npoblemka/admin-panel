@@ -39,7 +39,7 @@ export class NewTaskComponent {
   fb = inject(FormBuilder);
   dialog = inject (MatDialogRef)
   myControl = new FormControl('', Validators.required);
-  options: string[] = ['User1', 'User2', 'User3'];
+  options: string[] = ['User1', 'User2', 'User3', 'Ann'];
 
   newTaskForm = this.fb.group({
     executor: this.myControl,

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ITask } from '../../model';
 import { Observable, map } from 'rxjs';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,14 @@ export class ServiceService {
   getAllTasks() {
     return this.http.get<ITask[]>(this.urlTasks)
   }
-
   removeTask(id: string) {
     return this.http.delete(this.urlTasks + '/' + id)
   }
+  updateTask<ITask>(id: string, inputData: ITask) {
+    return this.http.put(this.urlTasks + '/' + id, inputData)
+  }
+  getTaskByCode(id: string) {
+    return this.http.get<ITask>(this.urlTasks + '/' + id)
+  }
+
 }

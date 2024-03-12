@@ -1,0 +1,19 @@
+mat-card {
+    width: 100%;
+    max-width: 600px;
+}
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+mat-list-item {
+    span:first-child {
+        color: rgba(135, 48, 48, 0.693);
+        font-size: 16px;
+    }
+    span {
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+    }
+}

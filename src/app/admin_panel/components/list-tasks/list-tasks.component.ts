@@ -9,10 +9,11 @@ import { MatCardModule } from '@angular/material/card';
 import { ITask } from '../../../model';
 import { RouterLink } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { app } from '../../../../../server';
 import { NewTaskComponent } from '../new-task/new-task.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ServiceService } from '../../service/service.service';
+import { UpdateTaskComponent } from '../update-task/update-task.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-list-tasks',
@@ -28,13 +29,14 @@ import { ServiceService } from '../../service/service.service';
       RouterLink,
       MatDialogModule,
       NewTaskComponent,
-      MatNativeDateModule],
+      MatNativeDateModule,],
   templateUrl: './list-tasks.component.html',
   styleUrl: './list-tasks.component.scss',
 })
 export class ListTasksComponent {
-  service = inject(ServiceService)
-  dialog = inject(MatDialog)
+  service = inject(ServiceService);
+  dialog = inject(MatDialog);
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   listTasks!: MatTableDataSource<ITask>
@@ -57,8 +59,14 @@ export class ListTasksComponent {
       this.listTasks.paginator.firstPage();
     }
   }
-  openDialog() {
+  createNewTask() {
     this.dialog.open(NewTaskComponent);
+  }
+
+  updateTask(id: string) {
+    this.dialog.open(UpdateTaskComponent, {
+      data: {id:id}
+    });
   }
 
   getTasks() {
@@ -68,8 +76,10 @@ export class ListTasksComponent {
   }
 
   removeTask(id: string) {
-    this.service.removeTask(id).subscribe (res => {
+    this.service.removeTask(id).subscribe(res => {
       this.getTasks()
     })
   }
+
+  
 }

@@ -9,6 +9,12 @@ mat-card {
     font-size: 20px;
 }
 
+.title-info {
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .btn {
     button:first-child {
         margin-right: 10px;

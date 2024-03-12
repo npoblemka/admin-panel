@@ -1,0 +1,39 @@
+<mat-dialog-content>
+    <mat-card>
+        <mat-card-content>
+            <h2 mat-dialog-title>Изменить задачу</h2>
+            <form [formGroup]="updateForm" class="example-form" (ngSubmit)="updateTask()">
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Сменить исполнителя</mat-label>
+                    <input formControlName="executor" type="text" aria-label="Number" matInput [formControl]="myControl"
+                        [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        @for (option of options; track option) {
+                        <mat-option [value]="option">{{option}}</mat-option>
+                        }
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field class="datepicker">
+                    <mat-label>последний срок</mat-label>
+                    <input formControlName="didline" matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+
+                <mat-radio-group formControlName="status" aria-label="Select an option">
+                    <mat-label>Статус задачи:</mat-label>
+                    <mat-radio-button value="исполнена">исполнена</mat-radio-button>
+                    <mat-radio-button value="не исполнена">не исполнена</mat-radio-button>
+                </mat-radio-group>
+
+                <mat-dialog-actions>
+                    <button mat-button color="primary">изменить</button>
+                    <button mat-button color="warn" mat-dialog-close>отменить</button>
+                </mat-dialog-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</mat-dialog-content>

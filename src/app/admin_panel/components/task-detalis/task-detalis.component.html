@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-content>
+        <h3>Детальная информация о задаче:</h3>
+
+        <mat-list>
+          <mat-list-item>
+            <span matListItemTitle>Исполнитель:</span>
+            <span matListItemLine>{{task.executor}}</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            <span matListItemTitle>Название задачи:</span>
+            <span matListItemLine>{{task.title}}</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            <span matListItemTitle>Подробнее о задаче:</span>
+            <span matListItemLine>{{task.text}}</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            <span matListItemTitle>Дедлайн:</span>
+            <span matListItemLine>{{task.didline}}</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            <span matListItemTitle>Приоритет задачи:</span>
+            <span matListItemLine>{{task.priority}}</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            <span matListItemTitle>Статус задачи:</span>
+            <span matListItemLine>{{task.status}}</span>
+          </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
+

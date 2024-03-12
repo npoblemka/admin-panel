@@ -1,4 +1,5 @@
 export interface ITask {
+    id?:string,
     executor: string,
     title: string,
     text: string,
