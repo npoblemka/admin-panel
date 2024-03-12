@@ -17,10 +17,9 @@
             <span matListItemTitle>Подробнее о задаче:</span>
             <span matListItemLine>{{task.text}}</span>
           </mat-list-item>
-
           <mat-list-item>
             <span matListItemTitle>Дедлайн:</span>
-            <span matListItemLine>{{task.didline}}</span>
+            <span matListItemLine>{{task.didline| date: 'dd MMMM yyyy'}}</span>
           </mat-list-item>
 
           <mat-list-item>

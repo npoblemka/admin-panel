@@ -1,57 +1,21 @@
 {
   "tasks": [
     {
-      "id": "a6e1",
-      "executor": "Usersa",
-      "title": "fbfdbfd",
-      "text": "fgbf",
-      "didline": "2024-03-11T21:21:53.632Z",
-      "priority": false,
-      "status": "исполнена"
-    },
-    {
-      "id": "c41f",
-      "executor": "User2",
-      "title": "111111111",
-      "text": "111111111",
-      "didline": "2024-03-11T21:32:58.926Z",
-      "priority": false,
+      "id": "a8fa",
+      "executor": "User3",
+      "title": "gbfb",
+      "text": "bgfb",
+      "didline": "2024-03-12T18:09:19.238Z",
+      "priority": "",
       "status": "не исполнена"
     },
     {
-      "id": "c1f7",
-      "executor": "Anna1",
-      "title": "aaa",
-      "text": "aa",
-      "didline": "2024-03-10T21:00:00.000Z",
-      "priority": false,
-      "status": "не исполнена"
-    },
-    {
-      "id": "9f98",
-      "executor": "Ann",
-      "title": "hello",
-      "text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "didline": "2024-03-12T13:36:55.895Z",
-      "priority": true,
-      "status": "не исполнена"
-    },
-    {
-      "id": "b2ee",
-      "executor": "User2",
-      "title": "ffvgfvf",
-      "text": "vfvf",
-      "didline": "2024-03-12T13:42:51.522Z",
-      "priority": false,
-      "status": "не исполнена"
-    },
-    {
-      "id": "d6f7",
-      "executor": "Ann",
-      "title": "zzz",
-      "text": "zzzz",
-      "didline": "2024-03-12T13:43:55.033Z",
-      "priority": false,
+      "id": "eeee",
+      "executor": "User1",
+      "title": "ggg",
+      "text": "ggg",
+      "didline": "2024-03-12T18:35:23.565Z",
+      "priority": "важно",
       "status": "не исполнена"
     }
   ]
