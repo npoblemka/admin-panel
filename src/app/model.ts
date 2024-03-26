@@ -9,10 +9,5 @@ export interface ITask {
     status: string,
 }
 
-export interface User {
-    name: string,
-    email: string,
-    id: string;
-    password: string,
-    isAdminRole: string
-}
+
+
