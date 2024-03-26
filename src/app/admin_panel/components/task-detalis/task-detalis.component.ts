@@ -5,6 +5,7 @@ import { ServiceService } from '../../service/service.service';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { text } from 'stream/consumers';
 
 @Component({
   selector: 'app-task-detalis',

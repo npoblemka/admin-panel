@@ -1,0 +1,29 @@
+mat-card {
+    margin: 100px auto;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.login-btn {
+    padding: 30px;
+    font-size: 30px;
+    color: rgb(84, 126, 188) !important;
+    background-color: #d4d2d2;
+}
+
+mat-card-header {
+    margin: 30px 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}

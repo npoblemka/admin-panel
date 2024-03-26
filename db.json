@@ -1,4 +1,20 @@
 {
+  "users": [
+    {
+      "id": "svetlana",
+      "name": "светлана",
+      "password": "123456",
+      "email": "sv@ramb.ru",
+      "isAdminRole": ""
+    },
+    {
+      "id": "admin",
+      "name": "ирина",
+      "password": "123456",
+      "email": "111@ex",
+      "isAdminRole": "admin"
+    }
+  ],
   "tasks": [
     {
       "id": "a8fa",
@@ -10,12 +26,12 @@
       "status": "не исполнена"
     },
     {
-      "id": "eeee",
+      "id": "6c55",
       "executor": "User1",
-      "title": "ggg",
-      "text": "ggg",
-      "didline": "2024-03-12T18:35:23.565Z",
-      "priority": "важно",
+      "title": "ngnfg",
+      "text": "ngfnfg",
+      "didline": "2024-03-12T20:04:03.720Z",
+      "priority": "",
       "status": "не исполнена"
     }
   ]
