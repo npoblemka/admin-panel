@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {  MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
@@ -69,7 +69,7 @@ export class NewTaskComponent {
   isCheckbox() {
     if (this.newTaskForm.value.priority) {
       this.newTaskForm.controls.priority.setValue('важно')
-    } 
+    }
   }
 
 }

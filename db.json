@@ -1,23 +1,21 @@
 {
   "users": [
     {
-      "id": "a6e1",
-      "executor": "Usersa",
-      "title": "fbfdbfd",
-      "text": "fgbf",
-      "didline": "2024-03-11T21:21:53.632Z",
-      "priority": false,
-      "status": "исполнена"
+      "id": "admin",
+      "name": "sveta",
+      "password": "123456",
+      "email": "sv@ru",
+      "isRole": "admin"
     },
     {
-      "id": "c41f",
-      "executor": "User2",
-      "title": "111111111",
-      "text": "111111111",
-      "didline": "2024-03-11T21:32:58.926Z",
-      "priority": false,
-      "status": "не исполнена"
-    },
+      "id": "user",
+      "name": "irina",
+      "password": "123456",
+      "email": "ir@ru",
+      "isRole": ""
+    }
+  ],
+  "tasks": [
     {
       "id": "c1f7",
       "executor": "Anna1",
@@ -46,12 +44,30 @@
       "status": "не исполнена"
     },
     {
-      "id": "d6f7",
+      "id": "1468",
+      "executor": "User3",
+      "title": "r",
+      "text": "r",
+      "didline": "2024-03-26T20:34:11.806Z",
+      "priority": "",
+      "status": "не исполнена"
+    },
+    {
+      "id": "dcf7",
       "executor": "Ann",
-      "title": "zzz",
-      "text": "zzzz",
-      "didline": "2024-03-12T13:43:55.033Z",
-      "priority": false,
+      "title": "dd",
+      "text": "dd",
+      "didline": "2024-03-26T20:37:35.422Z",
+      "priority": "важно",
+      "status": "не исполнена"
+    },
+    {
+      "id": "8d40",
+      "executor": "Ann",
+      "title": "qqq",
+      "text": "aa",
+      "didline": "2024-03-26T20:53:24.388Z",
+      "priority": "важно",
       "status": "не исполнена"
     }
   ]

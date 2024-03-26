@@ -31,7 +31,7 @@ export class RegisterComponent {
     id: this.fb.control('', Validators.required),
     password: this.fb.control('', [Validators.required, Validators.minLength(6)]),
     email: this.fb.control('', [Validators.required, Validators.email]),
-    isAdminRole: this.fb.control(''),
+    isRole: this.fb.control(''),
   })
   isRegister() {
     if (this.registerForm.valid) {

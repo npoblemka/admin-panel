@@ -10,11 +10,11 @@ import { ITask } from '../../../model';
 import { RouterLink } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { NewTaskComponent } from '../new-task/new-task.component';
-import {  MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { ServiceService } from '../../service/service.service';
 import { UpdateTaskComponent } from '../update-task/update-task.component';
 import { CommonModule } from '@angular/common';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
@@ -43,12 +43,13 @@ import {MatIconModule} from '@angular/material/icon';
 export class ListTasksComponent {
   service = inject(ServiceService);
   dialog = inject(MatDialog);
-  
-  
+
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  listTasks!: MatTableDataSource<ITask>
+  // listTasks!: MatTableDataSource<ITask>
+  listTasks = new MatTableDataSource<ITask>()
 
   displayedColumns: string[] = ['number', 'executor', 'title', 'didline', 'priority', 'status', 'buttons'];
 
@@ -59,7 +60,11 @@ export class ListTasksComponent {
     this.listTasks.paginator = this.paginator;
     this.listTasks.sort = this.sort;
   }
-
+  getTasks() {
+    this.service.getAllTasks().subscribe(res => {
+      this.listTasks.data = res
+    })
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.listTasks.filter = filterValue.trim().toLowerCase();
@@ -78,11 +83,6 @@ export class ListTasksComponent {
     });
   }
 
-  getTasks() {
-    this.service.getAllTasks().subscribe(res => {
-      this.listTasks = new MatTableDataSource(res);
-    })
-  }
 
   removeTask(id: string) {
     this.service.removeTask(id).subscribe(res => {

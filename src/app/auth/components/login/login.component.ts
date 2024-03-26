@@ -36,7 +36,7 @@ export class LoginComponent {
         console.log(this.result)
         if (this.result.password === this.loginForm.value.password) {
           sessionStorage.setItem('id', this.result.id);
-          sessionStorage.setItem('role', this.result.isAdminRole);
+          sessionStorage.setItem('role', this.result.isRole);
           this.router.navigate(['user'])
         }
       })
