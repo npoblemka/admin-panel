@@ -41,7 +41,7 @@ export class NewTaskComponent {
   fb = inject(FormBuilder);
   dialog = inject(MatDialogRef)
   myControl = new FormControl('', Validators.required);
-  options: string[] = ['User1', 'User2', 'User3', 'Ann'];
+  options!: string[];
   newTaskForm = this.fb.group({
     executor: this.myControl,
     title: this.fb.control('', Validators.required),
@@ -50,7 +50,11 @@ export class NewTaskComponent {
     priority: this.fb.control(''),
     status: this.fb.control('не исполнена'),
   })
-
+  ngOnInit() {
+    this.service.getAllUsersId().subscribe(res => {
+      this.options = res;
+    })
+  }
   addNewTask() {
     if (this.newTaskForm.valid) {
       console.log(this.newTaskForm)

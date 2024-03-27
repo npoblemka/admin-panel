@@ -48,7 +48,6 @@ export class ListTasksComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  // listTasks!: MatTableDataSource<ITask>
   listTasks = new MatTableDataSource<ITask>()
 
   displayedColumns: string[] = ['number', 'executor', 'title', 'didline', 'priority', 'status', 'buttons'];
