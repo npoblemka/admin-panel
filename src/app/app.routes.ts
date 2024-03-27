@@ -6,12 +6,18 @@ import { RegisterComponent } from './auth/components/register/register.component
 import { LoginComponent } from './auth/components/login/login.component';
 import { UserComponent } from './pages/user/user.component';
 import { authGuard } from './auth/guards/auth.guard';
+import { AllTasksComponent } from './user_panel/components/all-tasks/all-tasks.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'user', component: UserComponent, canActivate: [authGuard] },
+    {
+        path: 'user', component: UserComponent, canActivate: [authGuard],
+        children: [
+            { path: 'allTasks', component: AllTasksComponent}
+        ]
+    },
     {
         path: 'admin', component: AdminPanelComponent, canActivate: [authGuard],
         data: { role: 'admin' },

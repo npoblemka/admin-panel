@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ITask, User } from '../../model';
 import { map, Observable } from 'rxjs';
-import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'

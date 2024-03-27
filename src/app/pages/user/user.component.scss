@@ -1,0 +1,13 @@
+
+.container__admin {
+    display: flex;
+}
+.container__admin-menu {
+    max-width: 200px;
+    width: 100%;
+    height: 1000vh;
+    background-color: rgba(128, 128, 128, 0.354);
+}
+.container__admin-routes {
+    flex: 1;
+}
